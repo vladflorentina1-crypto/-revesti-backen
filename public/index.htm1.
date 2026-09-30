@@ -1,1 +1,109 @@
 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReVesti – Gebraucht kaufen. Einfach verkaufen.</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,sans-serif;background:#f7f7f5;color:#222}
+    header{background:white;padding:18px 20px;border-bottom:1px solid #ddd;position:sticky;top:0;z-index:5}
+    .nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:15px}
+    .logo{font-size:28px;font-weight:800;color:#111}
+    nav a{margin-left:18px;text-decoration:none;color:#333;font-weight:600}
+    .hero{max-width:1100px;margin:30px auto;padding:45px 25px;background:#e8efe9;border-radius:22px;text-align:center}
+    .hero h1{font-size:42px;margin:0 0 15px}
+    .hero p{font-size:19px;margin-bottom:25px}
+    .btn{display:inline-block;padding:13px 22px;border-radius:10px;text-decoration:none;font-weight:700;margin:5px}
+    .dark{background:#111;color:white}
+    .light{background:white;color:#111;border:1px solid #ccc}
+    section{max-width:1100px;margin:35px auto;padding:0 20px}
+    h2{font-size:28px}
+    .cats,.products{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .card{background:white;border:1px solid #ddd;border-radius:14px;padding:18px}
+    .cat{font-weight:700;text-align:center;padding:25px 10px}
+    .product-img{height:150px;background:#eee;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:45px}
+    .price{font-size:21px;font-weight:800;margin-top:10px}
+    .commission{background:#111;color:white;border-radius:20px;padding:35px;text-align:center}
+    footer{margin-top:50px;background:#222;color:white;text-align:center;padding:30px}
+    @media(max-width:700px){
+      nav{display:none}
+      .hero h1{font-size:31px}
+      .cats,.products{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">ReVesti</div>
+    <nav>
+      <a href="#">Kaufen</a>
+      <a href="#">Verkaufen</a>
+      <a href="#">Favoriten</a>
+      <a href="#">Konto</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Gebraucht kaufen.<br>Einfach verkaufen.</h1>
+  <p>Entdecke tolle gebrauchte Produkte oder verkaufe deine eigenen Sachen einfach und sicher.</p>
+  <a class="btn dark" href="#">Kaufen</a>
+  <a class="btn light" href="#">Verkaufen</a>
+</div>
+
+<section>
+  <h2>Kategorien</h2>
+  <div class="cats">
+    <div class="card cat">👕 Kleidung</div>
+    <div class="card cat">📱 Elektronik</div>
+    <div class="card cat">🏠 Zuhause</div>
+    <div class="card cat">🐶 Haustiere</div>
+  </div>
+</section>
+
+<section>
+  <h2>Neueste Angebote</h2>
+  <div class="products">
+    <div class="card">
+      <div class="product-img">👟</div>
+      <h3>Schuhe</h3>
+      <div class="price">25 €</div>
+    </div>
+    <div class="card">
+      <div class="product-img">📱</div>
+      <h3>Smartphone</h3>
+      <div class="price">120 €</div>
+    </div>
+    <div class="card">
+      <div class="product-img">👜</div>
+      <h3>Tasche</h3>
+      <div class="price">35 €</div>
+    </div>
+    <div class="card">
+      <div class="product-img">🎮</div>
+      <h3>Spielkonsole</h3>
+      <div class="price">90 €</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="commission">
+    <h2>Nur 10 % Provision</h2>
+    <p>Du verkaufst für 50 €? ReVesti erhält 5 € Provision und du erhältst 45 €.</p>
+    <a class="btn light" href="#">Jetzt verkaufen</a>
+  </div>
+</section>
+
+<footer>
+  <strong>ReVesti</strong>
+  <p>Gebraucht kaufen. Einfach verkaufen.</p>
+  <p>© 2026 ReVesti</p>
+</footer>
+
+</body>
+</html>
