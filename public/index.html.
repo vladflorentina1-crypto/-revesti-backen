@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReVesti</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f5;
+      color: #222;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #ddd;
+      padding: 16px 20px;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    nav a {
+      margin-left: 18px;
+      text-decoration: none;
+      color: #222;
+      font-weight: 600;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 55px 20px;
+      text-align: center;
+      background: #e8efe9;
+      border-radius: 22px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin: 0 0 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 24px;
+      margin: 5px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .dark {
+      background: #111;
+      color: white;
+    }
+
+    .white {
+      background: white;
+      color: #111;
+      border: 1px solid #ccc;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-size: 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .icon {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .commission {
+      background: #111;
+      color: white;
+      padding: 35px 20px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 30px;
+      background: #222;
+      color: white;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">ReVesti</div>
+
+    <nav>
+      <a href="/">Kaufen</a>
+      <a href="/#verkaufen">Verkaufen</a>
+      <a href="/#favoriten">Favoriten</a>
+      <a href="/#konto">Konto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero">
+    <h1>Gebraucht kaufen.<br>Einfach verkaufen.</h1>
+
+    <p>
+      Entdecke gebrauchte Produkte oder verkaufe deine eigenen Sachen
+      einfach und sicher.
+    </p>
+
+    <a class="button dark" href="#kaufen">Kaufen</a>
+    <a class="button white" href="#verkaufen">Verkaufen</a>
+  </div>
+
+  <section id="kaufen">
+    <h2>Kategorien</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="icon">👕</div>
+        <strong>Kleidung</strong>
+      </div>
+
+      <div class="card">
+        <div class="icon">📱</div>
+        <strong>Elektronik</strong>
+      </div>
+
+      <div class="card">
+        <div class="icon">🏠</div>
+        <strong>Zuhause</strong>
+      </div>
+
+      <div class="card">
+        <div class="icon">🐶</div>
+        <strong>Haustiere</strong>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Neueste Angebote</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="icon">👟</div>
+        <h3>Schuhe</h3>
+        <strong>25 €</strong>
+      </div>
+
+      <div class="card">
+        <div class="icon">📱</div>
+        <h3>Smartphone</h3>
+        <strong>120 €</strong>
+      </div>
+
+      <div class="card">
+        <div class="icon">👜</div>
+        <h3>Tasche</h3>
+        <strong>35 €</strong>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎮</div>
+        <h3>Spielkonsole</h3>
+        <strong>90 €</strong>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="verkaufen">
+    <div class="commission">
+      <h2>Nur 10 % Provision</h2>
+
+      <p>
+        Du verkaufst für 50 € → ReVesti erhält 5 € →
+        du erhältst 45 €.
+      </p>
+
+      <a class="button white" href="#verkaufen">
+        Jetzt verkaufen
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <strong>ReVesti</strong>
+  <p>Gebraucht kaufen. Einfach verkaufen.</p>
+  <p>© 2026 ReVesti</p>
+</footer>
+
+</body>
+</html>
