@@ -2,108 +2,325 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ReVesti – Gebraucht kaufen. Einfach verkaufen.</title>
-  <style>
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,sans-serif;background:#f7f7f5;color:#222}
-    header{background:white;padding:18px 20px;border-bottom:1px solid #ddd;position:sticky;top:0;z-index:5}
-    .nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:15px}
-    .logo{font-size:28px;font-weight:800;color:#111}
-    nav a{margin-left:18px;text-decoration:none;color:#333;font-weight:600}
-    .hero{max-width:1100px;margin:30px auto;padding:45px 25px;background:#e8efe9;border-radius:22px;text-align:center}
-    .hero h1{font-size:42px;margin:0 0 15px}
-    .hero p{font-size:19px;margin-bottom:25px}
-    .btn{display:inline-block;padding:13px 22px;border-radius:10px;text-decoration:none;font-weight:700;margin:5px}
-    .dark{background:#111;color:white}
-    .light{background:white;color:#111;border:1px solid #ccc}
-    section{max-width:1100px;margin:35px auto;padding:0 20px}
-    h2{font-size:28px}
-    .cats,.products{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-    .card{background:white;border:1px solid #ddd;border-radius:14px;padding:18px}
-    .cat{font-weight:700;text-align:center;padding:25px 10px}
-    .product-img{height:150px;background:#eee;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:45px}
-    .price{font-size:21px;font-weight:800;margin-top:10px}
-    .commission{background:#111;color:white;border-radius:20px;padding:35px;text-align:center}
-    footer{margin-top:50px;background:#222;color:white;text-align:center;padding:30px}
-    @media(max-width:700px){
-      nav{display:none}
-      .hero h1{font-size:31px}
-      .cats,.products{grid-template-columns:repeat(2,1fr)}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReVesti – Gebraucht kaufen. Einfach verkaufen.</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f7f7f5;color:#222}
+header{background:white;padding:16px 20px;border-bottom:1px solid #ddd;position:sticky;top:0;z-index:5}
+.nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{font-size:27px;font-weight:800;color:#111}
+nav{display:flex;gap:16px;flex-wrap:wrap}
+nav a{color:#333;text-decoration:none;font-weight:700}
+button,.btn{border:0;cursor:pointer;padding:12px 17px;border-radius:9px;font-weight:700;font-size:14px}
+.dark{background:#111;color:white}
+.light{background:white;color:#111;border:1px solid #ccc}
+.hero{max-width:1100px;margin:28px auto;padding:45px 22px;background:#e8efe9;border-radius:20px;text-align:center}
+.hero h1{font-size:40px;margin:0 0 14px}
+.hero p{font-size:18px;line-height:1.5}
+section{max-width:1100px;margin:32px auto;padding:0 20px}
+h2{font-size:26px}
+.cats,.products{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card,.panel{background:white;border:1px solid #ddd;border-radius:14px;padding:17px}
+.cat{text-align:center;font-weight:700;padding:24px 8px}
+.product-img{height:135px;background:#eee;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:43px}
+.price{font-size:21px;font-weight:800;margin:10px 0}
+.muted{color:#666;font-size:14px}
+.panel{max-width:600px;margin:25px auto;padding:22px}
+input,select,textarea{width:100%;padding:12px;margin:7px 0 14px;border:1px solid #ccc;border-radius:8px;font-size:16px}
+label{font-weight:700;font-size:14px}
+.hidden{display:none!important}
+.message{padding:12px;background:#eef4ee;border-radius:8px;margin:12px 0}
+.error{background:#fff0f0;color:#9b1717}
+.commission{background:#111;color:white;border-radius:18px;padding:30px;text-align:center}
+footer{margin-top:45px;background:#222;color:white;text-align:center;padding:28px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.actions button{flex:1}
+@media(max-width:700px){
+ .nav{align-items:flex-start}
+ nav{gap:10px;font-size:13px}
+ .hero{margin:15px;padding:32px 15px}
+ .hero h1{font-size:30px}
+ .cats,.products{grid-template-columns:repeat(2,1fr)}
+}
+</style>
 </head>
 <body>
 
 <header>
-  <div class="nav">
-    <div class="logo">ReVesti</div>
-    <nav>
-      <a href="#">Kaufen</a>
-      <a href="#">Verkaufen</a>
-      <a href="#">Favoriten</a>
-      <a href="#">Konto</a>
-    </nav>
+ <div class="nav">
+  <div class="logo">ReVesti</div>
+  <nav>
+   <a href="#angebote">Kaufen</a>
+   <a href="#verkaufen">Verkaufen</a>
+   <a href="#favoriten">Favoriten</a>
+   <a href="#konto">Mein Konto</a>
+  </nav>
+  <div>
+   <button class="light" onclick="showPanel('login')">Anmelden</button>
+   <button class="dark" onclick="showPanel('register')">Registrieren</button>
   </div>
+ </div>
 </header>
 
 <div class="hero">
-  <h1>Gebraucht kaufen.<br>Einfach verkaufen.</h1>
-  <p>Entdecke tolle gebrauchte Produkte oder verkaufe deine eigenen Sachen einfach und sicher.</p>
-  <a class="btn dark" href="#">Kaufen</a>
-  <a class="btn light" href="#">Verkaufen</a>
+ <h1>Gebraucht kaufen.<br>Einfach verkaufen.</h1>
+ <p>Entdecke tolle gebrauchte Produkte oder verkaufe deine eigenen Sachen einfach.</p>
+ <a class="btn dark" href="#angebote">Produkte entdecken</a>
+ <a class="btn light" href="#verkaufen">Jetzt verkaufen</a>
 </div>
 
-<section>
-  <h2>Kategorien</h2>
-  <div class="cats">
-    <div class="card cat">👕 Kleidung</div>
-    <div class="card cat">📱 Elektronik</div>
-    <div class="card cat">🏠 Zuhause</div>
-    <div class="card cat">🐶 Haustiere</div>
-  </div>
+<section id="auth" class="panel hidden">
+ <h2 id="authTitle">Anmelden</h2>
+ <div id="registerFields" class="hidden">
+  <label>Name</label>
+  <input id="regName" placeholder="Dein Name">
+ </div>
+ <label>E-Mail</label>
+ <input id="authEmail" type="email" placeholder="deine@email.de">
+ <label>Passwort</label>
+ <input id="authPassword" type="password" placeholder="Mindestens 8 Zeichen">
+ <div id="roleField" class="hidden">
+  <label>Ich möchte</label>
+  <select id="regRole">
+   <option value="buyer">Einkaufen</option>
+   <option value="seller">Produkte verkaufen</option>
+  </select>
+ </div>
+ <button class="dark" onclick="submitAuth()">Weiter</button>
+ <button class="light" onclick="hidePanels()">Schließen</button>
+ <p id="authMessage"></p>
+ <p class="muted">Du hast noch kein Konto? <a href="#" onclick="showPanel('register');return false">Jetzt registrieren</a></p>
+</section>
+
+<section id="angebote">
+ <h2>Kategorien</h2>
+ <div class="cats">
+  <div class="card cat">👕 Kleidung</div>
+  <div class="card cat">📱 Elektronik</div>
+  <div class="card cat">🏠 Zuhause</div>
+  <div class="card cat">🐶 Haustiere</div>
+ </div>
 </section>
 
 <section>
-  <h2>Neueste Angebote</h2>
-  <div class="products">
-    <div class="card">
-      <div class="product-img">👟</div>
-      <h3>Schuhe</h3>
-      <div class="price">25 €</div>
-    </div>
-    <div class="card">
-      <div class="product-img">📱</div>
-      <h3>Smartphone</h3>
-      <div class="price">120 €</div>
-    </div>
-    <div class="card">
-      <div class="product-img">👜</div>
-      <h3>Tasche</h3>
-      <div class="price">35 €</div>
-    </div>
-    <div class="card">
-      <div class="product-img">🎮</div>
-      <h3>Spielkonsole</h3>
-      <div class="price">90 €</div>
-    </div>
-  </div>
+ <h2>Neueste Angebote</h2>
+ <div id="products" class="products">
+  <p>Produkte werden geladen ...</p>
+ </div>
+ <p id="productsMessage" class="muted"></p>
+</section>
+
+<section id="verkaufen" class="panel">
+ <h2>Produkt verkaufen</h2>
+ <p class="muted">Melde dich an und stelle dein Produkt ein.</p>
+ <label>Produktname</label>
+ <input id="productTitle" placeholder="Zum Beispiel: Damenjacke">
+ <label>Kategorie</label>
+ <select id="productCategory">
+  <option value="Kleidung">Kleidung</option>
+  <option value="Elektronik">Elektronik</option>
+  <option value="Zuhause">Zuhause</option>
+  <option value="Haustiere">Haustiere</option>
+  <option value="Sonstiges">Sonstiges</option>
+ </select>
+ <label>Preis in Euro</label>
+ <input id="productPrice" type="number" min="0.01" step="0.01" placeholder="25.00">
+ <label>Zustand</label>
+ <select id="productCondition">
+  <option value="Neu">Neu</option>
+  <option value="Sehr gut">Sehr gut</option>
+  <option value="Gut">Gut</option>
+  <option value="Akzeptabel">Akzeptabel</option>
+ </select>
+ <label>Beschreibung</label>
+ <textarea id="productDescription" rows="4" placeholder="Beschreibe dein Produkt ..."></textarea>
+ <button class="dark" onclick="createProduct()">Produkt einstellen</button>
+ <p id="sellMessage"></p>
+</section>
+
+<section id="favoriten">
+ <h2>Meine Favoriten</h2>
+ <p class="muted">Du kannst Produkte mit dem Favoriten-Button speichern. Deine Favoriten werden mit deinem Konto verknüpft.</p>
+</section>
+
+<section id="konto" class="panel">
+ <h2>Mein Konto</h2>
+ <div id="accountInfo">
+  <p>Bitte melde dich an, um dein Konto zu sehen.</p>
+ </div>
+ <div id="accountOrders"></div>
+ <button id="logoutButton" class="light hidden" onclick="logout()">Abmelden</button>
 </section>
 
 <section>
-  <div class="commission">
-    <h2>Nur 10 % Provision</h2>
-    <p>Du verkaufst für 50 €? ReVesti erhält 5 € Provision und du erhältst 45 €.</p>
-    <a class="btn light" href="#">Jetzt verkaufen</a>
-  </div>
+ <div class="commission">
+  <h2>Nur 10 % Provision</h2>
+  <p>Du verkaufst für 50 €? Die ReVesti-Provision beträgt 5 €.</p>
+  <p>Dein Anteil: 45 €.</p>
+ </div>
 </section>
 
 <footer>
-  <strong>ReVesti</strong>
-  <p>Gebraucht kaufen. Einfach verkaufen.</p>
-  <p>© 2026 ReVesti</p>
+ <strong>ReVesti</strong>
+ <p>Gebraucht kaufen. Einfach verkaufen.</p>
+ <p>© 2026 ReVesti</p>
 </footer>
 
+<script>
+let token = localStorage.getItem('revesti_token') || '';
+let currentUser = null;
+
+function showPanel(mode){
+ document.getElementById('auth').classList.remove('hidden');
+ const isRegister = mode === 'register';
+ document.getElementById('authTitle').textContent = isRegister ? 'Konto erstellen' : 'Anmelden';
+ document.getElementById('registerFields').classList.toggle('hidden',!isRegister);
+ document.getElementById('roleField').classList.toggle('hidden',!isRegister);
+ document.getElementById('authMessage').textContent = '';
+ document.getElementById('auth').dataset.mode = mode;
+ document.getElementById('auth').scrollIntoView({behavior:'smooth'});
+}
+function hidePanels(){
+ document.getElementById('auth').classList.add('hidden');
+}
+function showMessage(id,text,error=false){
+ const el=document.getElementById(id);
+ el.textContent=text;
+ el.className=error?'message error':'message';
+}
+async function api(url,options={}){
+ const headers={'Content-Type':'application/json',...(options.headers||{})};
+ if(token) headers.Authorization='Bearer '+token;
+ const response=await fetch(url,{...options,headers});
+ const data=await response.json().catch(()=>({}));
+ if(!response.ok) throw new Error(data.error||'Ein Fehler ist aufgetreten');
+ return data;
+}
+async function submitAuth(){
+ const mode=document.getElementById('auth').dataset.mode;
+ const body={
+  email:document.getElementById('authEmail').value.trim(),
+  password:document.getElementById('authPassword').value
+ };
+ let url='/api/login';
+ if(mode==='register'){
+  body.name=document.getElementById('regName').value.trim();
+  body.role=document.getElementById('regRole').value;
+  url='/api/register';
+ }
+ try{
+  const data=await api(url,{method:'POST',body:JSON.stringify(body)});
+  token=data.token;
+  localStorage.setItem('revesti_token',token);
+  currentUser=data.user;
+  hidePanels();
+  updateAccount();
+  alert('Willkommen bei ReVesti, '+currentUser.name+'!');
+ }catch(e){
+  showMessage('authMessage',e.message,true);
+ }
+}
+function escapeHTML(value){
+ return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+async function loadProducts(){
+ const box=document.getElementById('products');
+ try{
+  const data=await api('/api/products');
+  if(!data.products.length){
+   box.innerHTML='<p>Noch keine Produkte vorhanden. Sei der Erste, der etwas verkauft!</p>';
+   return;
+  }
+  box.innerHTML=data.products.map(p=>`
+   <div class="card">
+    <div class="product-img">🛍️</div>
+    <h3>${escapeHTML(p.title)}</h3>
+    <p class="muted">${escapeHTML(p.category)} · ${escapeHTML(p.condition)}</p>
+    <p>${escapeHTML(p.description||'')}</p>
+    <div class="price">${(p.price_cents/100).toFixed(2).replace('.',',')} €</div>
+    <p class="muted">Verkäufer: ${escapeHTML(p.seller_name)}</p>
+    <button class="light" onclick="toggleFavorite(${Number(p.id)})">♡ Favorit</button>
+   </div>
+  `).join('');
+ }catch(e){
+  box.innerHTML='<p>Produkte konnten nicht geladen werden.</p>';
+  document.getElementById('productsMessage').textContent=e.message;
+ }
+}
+async function toggleFavorite(productId){
+ if(!token){
+  showPanel('login');
+  return;
+ }
+ try{
+  const data=await api('/api/favorites/toggle',{
+   method:'POST',body:JSON.stringify({productId})
+  });
+  alert(data.favorite?'Zu Favoriten hinzugefügt':'Aus Favoriten entfernt');
+ }catch(e){alert(e.message);}
+}
+async function createProduct(){
+ if(!token){
+  showPanel('login');
+  return;
+ }
+ const price=Number(document.getElementById('productPrice').value);
+ if(!Number.isFinite(price)||price<=0){
+  showMessage('sellMessage','Bitte gib einen gültigen Preis ein.',true);
+  return;
+ }
+ const body={
+  title:document.getElementById('productTitle').value.trim(),
+  category:document.getElementById('productCategory').value,
+  priceCents:Math.round(price*100),
+  condition:document.getElementById('productCondition').value,
+  description:document.getElementById('productDescription').value.trim()
+ };
+ try{
+  const data=await api('/api/products',{method:'POST',body:JSON.stringify(body)});
+  showMessage('sellMessage','Produkt erfolgreich eingestellt! ReVesti-Provision bei diesem Preis: '+(data.commissionCents/100).toFixed(2)+' €.');
+  document.getElementById('productTitle').value='';
+  document.getElementById('productPrice').value='';
+  document.getElementById('productDescription').value='';
+  loadProducts();
+ }catch(e){
+  showMessage('sellMessage',e.message,true);
+ }
+}
+async function updateAccount(){
+ const info=document.getElementById('accountInfo');
+ const orders=document.getElementById('accountOrders');
+ if(!token){
+  currentUser=null;
+  info.innerHTML='<p>Bitte melde dich an, um dein Konto zu sehen.</p>';
+  orders.innerHTML='';
+  document.getElementById('logoutButton').classList.add('hidden');
+  return;
+ }
+ try{
+  const data=await api('/api/me');
+  currentUser=data.user;
+  info.innerHTML='<p><strong>'+escapeHTML(data.user.name)+'</strong></p><p>'+escapeHTML(data.user.email)+'</p><p>Kontotyp: '+(data.user.role==='seller'?'Verkäufer':'Käufer')+'</p>';
+  document.getElementById('logoutButton').classList.remove('hidden');
+  const orderData=await api('/api/orders');
+  orders.innerHTML='<h3>Meine Bestellungen</h3>'+(orderData.orders.length?orderData.orders.map(o=>`<p>Bestellung #${o.id} – ${escapeHTML(o.title||'Produkt')} – ${(o.total_cents/100).toFixed(2)} € – ${escapeHTML(o.status)}</p>`).join(''):'<p class="muted">Noch keine Bestellungen.</p>');
+ }catch(e){
+  token='';
+  localStorage.removeItem('revesti_token');
+  updateAccount();
+ }
+}
+function logout(){
+ token='';
+ currentUser=null;
+ localStorage.removeItem('revesti_token');
+ updateAccount();
+ alert('Du wurdest abgemeldet.');
+}
+loadProducts();
+updateAccount();
+</script>
 </body>
 </html>
