@@ -101,6 +101,10 @@ app.post('/api/orders',auth,(req,res)=>{
   res.status(201).json({orderId:order,commissionCents:commission});
 });
 
-app.listen(PORT,()=>console.log(`ReVesti backend läuft auf http://localhost:${app.get('/', (req,res) => {
+app.listen(PORT,()=>console.log(`ReVesti backend läuft auf http://localhost:${app.get('/', (req,app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.listen(PORT, () => {
+  console.log(`ReVesti backend läuft auf http://localhost:${PORT}`);
 });
